@@ -21,8 +21,12 @@
       </li>
     </ol>
 
-    <input v-model="new_todo_item" placeholder="New To Do Item">
-    <button>Add</button>
+    <input
+      v-model.trim="new_todo_item"
+      @keyup.enter="add_item"
+      placeholder="New To Do Item"
+    >
+    <button @click="add_item">Add</button>
     <button>Clear Completed</button>
   </div>
   <script src="index.js"></script>
