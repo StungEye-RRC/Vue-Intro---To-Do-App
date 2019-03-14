@@ -12,22 +12,16 @@
   <h1>Vue To Do App</h1>
   <div id="app">
     <ol>
-      <li>
+      <li v-for="todo in to_dos">
         <label>
-          <input type="checkbox">
-          <span>Finish the Vue JS Lecture</span>
-        </label>
-      </li>
-      <li>
-        <label>
-          <input type="checkbox">
-          <del>Watch Vue JS Intro Video</del>
+          <input v-model="todo.done" type="checkbox">
+          <del v-if="todo.done">{{ todo.text }}</del>
+          <span v-else>{{ todo.text }}</span>
         </label>
       </li>
     </ol>
 
-    <p>{{ new_todo_item }}</p>
-    <input placeholder="New To Do Item">
+    <input v-model="new_todo_item" placeholder="New To Do Item">
     <button>Add</button>
     <button>Clear Completed</button>
   </div>
