@@ -1,0 +1,28 @@
+body {
+  background: #20262e;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: #fff;
+}
+
+#app {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+ol {
+  margin-left: -20px;
+  margin-bottom: 2em;
+}
+
+li {
+  margin: 10px 0;
+}
+
+del {
+  color: rgba(0,0,0, 0.3);
+}
