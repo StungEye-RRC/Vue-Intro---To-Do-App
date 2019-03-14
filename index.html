@@ -11,6 +11,7 @@
 <body>
   <h1>Vue To Do App</h1>
   <div id="app">
+    <p v-if="to_dos.length === 0">Sorry, there are no to do items.</p>
     <ol>
       <li v-for="todo in to_dos">
         <label>
@@ -25,9 +26,10 @@
       v-model.trim="new_todo_item"
       @keyup.enter="add_item"
       placeholder="New To Do Item"
+      autofocus
     >
     <button @click="add_item">Add</button>
-    <button>Clear Completed</button>
+    <button @click="clear_completed">Clear Completed</button>
   </div>
   <script src="index.js"></script>
 </body>
