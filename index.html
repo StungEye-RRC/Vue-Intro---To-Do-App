@@ -6,31 +6,44 @@
   <title>Vue To Do</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+  <!-- Load Vue Js from a content delivery network. -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
   <h1>Vue To Do App</h1>
+
   <div id="app">
+    <!-- Only show this message if there are no to do items. -->
     <p v-if="to_dos.length === 0">Sorry, there are no to do items.</p>
+
+    <!-- Ordered list of all of our to do items.-->
     <ol>
       <li v-for="todo in to_dos">
         <label>
+          <!-- Bind each checkbox to each to do item's done property. -->
           <input v-model="todo.done" type="checkbox">
+
+          <!-- Diplay the to do item's text property in one of two ways. -->
           <del v-if="todo.done">{{ todo.text }}</del>
           <span v-else>{{ todo.text }}</span>
         </label>
       </li>
     </ol>
 
+    <!-- This input is bound to a data variable.
+         Pressing enter in this input triggers the add_item method. -->
     <input
       v-model.trim="new_todo_item"
       @keyup.enter="add_item"
       placeholder="New To Do Item"
       autofocus
     >
+    <!-- Each of these buttons has an associated on-click handler. -->
     <button @click="add_item">Add</button>
     <button @click="clear_completed">Clear Completed</button>
   </div>
+
+  <!-- The Vue Js app is loaded here. -->
   <script src="index.js"></script>
 </body>
 </html>
